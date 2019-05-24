@@ -1,0 +1,33 @@
+﻿<Window x:Class="EarthquakeApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EarthquakeApp"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="dataGrid" HorizontalContentAlignment="Center" IsReadOnly="True" AutoGenerateColumns="False" Margin="0,0,0,116">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Магнитуда"
+                            Binding="{Binding Magnitude}"/>
+                <DataGridTextColumn Header="Глубина эпицентра"
+                            Binding="{Binding Depth}"/>
+                <DataGridTextColumn Header="Дата"
+                            Binding="{Binding Time, StringFormat=dd/MM/yyyy}"/>
+                <DataGridTextColumn Header="Территория"
+                            Binding="{Binding Place}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="amountTextBox" materialDesign:HintAssist.Hint="Введите количество записей" HorizontalContentAlignment="Center" Height="44" TextWrapping="Wrap" VerticalAlignment="Bottom" Margin="0,0,0,60"/>
+        <Button x:Name="getButton" Click="GetButtonClick" Content="Получить" HorizontalAlignment="Center" Height="23" VerticalAlignment="Bottom" Width="120" Margin="336,0,336,32" ></Button>
+    </Grid>
+</Window>
